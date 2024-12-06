@@ -1,0 +1,593 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+}
+/*Faq button animation */ 
+.faq-button {
+    margin-top: 10vh;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ffe53b;
+    background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.151);
+    position: relative;
+  }
+  .faq-button svg {
+    height: 1.5em;
+    fill: white;
+  }
+  .faq-button:hover svg {
+    animation: jello-vertical 0.7s both;
+  }
+  @keyframes jello-vertical {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+    30% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+    40% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+    50% {
+      transform: scale3d(0.85, 1.15, 1);
+    }
+    65% {
+      transform: scale3d(1.05, 0.95, 1);
+    }
+    75% {
+      transform: scale3d(0.95, 1.05, 1);
+    }
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  .tooltip {
+    position: absolute;
+    top: -20px;
+    opacity: 0;
+    background-color: #ffe53b;
+    background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.2s;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+  }
+  
+  .tooltip::before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #ff2525;
+    background-size: 1000%;
+    background-position: center;
+    transform: rotate(45deg);
+    bottom: -15%;
+    transition-duration: 0.3s;
+  }
+  
+  .faq-button:hover .tooltip {
+    top: -40px;
+    opacity: 1;
+    transition-duration: 0.3s;
+  }
+  
+  /* faq card animation */
+
+  /* From Uiverse.io by vamsidevendrakumar */ 
+.faq_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 07vh;
+}
+
+
+  .card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+  }
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.999s;
+  }
+  
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .card-front {
+    background-color: #6A2C70;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border: 10px solid #6A2C70;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 24px;
+    transform: rotateY(0deg);
+  }
+  
+  .card-back {
+    background-color: #F08A5D;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border: 10px solid #F08A5D;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 18px;
+    transform: rotateY(180deg);
+    padding: 10px;
+  }
+  
+  /* extra data */
+  
+#card {
+  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+   border-radius: 15px;
+  gap: 1rem;
+  backdrop-filter: blur(15px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+    inset 0 0 5px rgba(255, 255, 255, 0.274), 0 5px 5px rgba(0, 0, 0, 0.164);
+  transition: 0.5s;
+  
+}
+
+#card:hover {
+  animation: ease-out 5s;
+  background: rgba(173, 173, 173, 0.05);
+}
+
+#card ul {
+  padding: 1rem;
+  display: flex;
+  list-style: none;
+  gap: 1rem; /* Space between items */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap; /* Prevent wrapping, items will stay in a single line */
+  flex-direction: row; /* Align items horizontally */
+}
+
+#card ul li {
+  cursor: pointer;
+  display: flex; /* Ensures the icon and text are aligned properly */
+  justify-content: center;
+  align-items: center;
+  position: relative; /* So the .text can be positioned over the icon */
+}
+
+
+#svg {
+  transition: all 0.3s;
+  /* if you find some problems change w - h : 30px*/
+  padding: 1rem;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  color: rgb(255, 174, 0);
+  fill: currentColor;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+}
+
+#text {
+  opacity: 0;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all 0.3s;
+  color: rgb(255, 174, 0);
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  z-index: 9999;
+  box-shadow: -5px 0 1px rgba(153, 153, 153, 0.2),
+    -10px 0 1px rgba(153, 153, 153, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.082);
+}
+
+/*isometric prooyection*/
+#iso-pro {
+  transition: 0.5s;
+}
+#iso-pro:hover a > #svg {
+  transform: translate(15px, -15px);
+  border-radius: 100%;
+}
+
+#iso-pro:hover #text {
+  opacity: 1;
+  transform: translate(25px, -2px) skew(-5deg);
+}
+
+#iso-pro:hover #svg {
+  transform: translate(5px, -5px);
+}
+
+#iso-pro span {
+  opacity: 0;
+  position: absolute;
+  color: #1877f2;
+  border-color: #1877f2;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.5), 0 5px 5px rgba(0, 0, 0, 0.164);
+  border-radius: 50%;
+  transition: all 0.3s;
+  height: 60px;
+  width: 60px;
+}
+
+#iso-pro:hover span {
+  opacity: 1;
+}
+
+#iso-pro:hover span:nth-child(1) {
+  opacity: 0.2;
+}
+
+#iso-pro:hover span:nth-child(2) {
+  opacity: 0.4;
+  transform: translate(5px, -5px);
+}
+
+#iso-pro:hover span:nth-child(3) {
+  opacity: 0.6;
+  transform: translate(10px, -10px);
+}
+#card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.extra_data{
+  margin-top: 10vh;
+  margin-right: 5vh;
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+/* bottom heading */
+.extra_data h2{
+  margin-right: 5vh;
+  font-family: serif;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 2rem;
+  color:rgb(81, 226, 231)
+}
+body{
+  background-color: black;
+  color: white;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: center;   /* Align logo and nav items to opposite sides */
+  align-items: center;             /* Vertically center the navbar items */
+  padding: 10px 20px;              /* Add some padding around the navbar */
+  background-color: #ffffff;          /* Set a dark background color for the navbar */
+  gap: 25vh;
+}
+
+/* Logo Styling */
+#logo {
+  height: 40px;                    /* Adjust logo height */
+  width: auto;                     /* Maintain aspect ratio */
+}
+
+/* Navbar Link Container */
+.nav_lsit {
+  display: flex;                   /* Align nav links horizontally */
+  gap: 20px;                       /* Space between nav items */
+  gap: 20vh;
+}
+
+/* Styling for Individual Navigation Items */
+.nav_lsit span {
+  display: inline-block;
+}
+
+.nav_lsit a {
+  color: white;                    /* Set link color to white */
+  text-decoration: none;            /* Remove underline */
+  font-size: 16px;                  /* Set font size for the links */
+  font-weight: normal;              /* Normal font weight */
+  position: relative;               /* To allow positioning of pseudo-elements */
+  padding: 5px 10px;                /* Padding inside the link */
+  transition: color 0.3s ease;      /* Smooth transition for hover effect */
+}
+
+/* Hover Effect on Links */
+.nav_lsit a:hover {
+  color: #007BFF;                  /* Change color to blue on hover */
+}
+
+/* Hover underline effect */
+.nav_lsit a:hover::after {
+  content: '';                      /* Create a new element on hover */
+  position: absolute;               /* Position it at the bottom of the link */
+  left: 0;
+  bottom: 0;
+  width: 100%;                       /* Make the underline span the width of the link */
+  height: 2px;                      /* Set the thickness of the underline */
+  background-color: #007BFF;        /* Set the color of the underline */
+  transition: width 0.3s ease;      /* Smooth transition for the underline effect */
+}
+
+/* Active Link Styling (optional) */
+.nav_lsit a:active {
+  color: #0056b3;                   /* Slightly darker blue when the link is clicked */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;       /* Stack navbar items vertically on smaller screens */
+      align-items: flex-start;      /* Align items to the left */
+  }
+
+  .nav_lsit {
+      flex-direction: column;      /* Stack nav items vertically */
+      gap: 10px;                    /* Reduce gap on smaller screens */
+      margin-top: 10px;
+  }
+
+  .nav_lsit a {
+      font-size: 18px;               /* Increase font size for smaller screens */
+  }
+}
+
+/* pppprrrroihsdfjhghj */
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 30px; /* Reduced padding for navbar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo img {
+  height: 40px; /* Logo size */
+  width: auto;
+  margin-right: 10px; /* Reduced margin between logo and nav items */
+}
+
+/* Navigation Links Container */
+.nav_list {
+  display: flex;
+  gap: 20px; /* Reduced gap between links */
+  align-items: center;
+}
+
+/* Navigation Link Styling */
+.nav_list a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 15px;
+  position: relative;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effect Styling */
+.nav_list a:hover {
+  color: #ff6347; /* Tomato color on hover */
+  transform: scale(1.1); /* Slightly enlarge text */
+}
+
+/* Underline Animation (appears on hover) */
+.nav_list a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff6347;
+  transition: width 0.3s ease;
+}
+
+/* Expand underline on hover */
+.nav_list a:hover::before {
+  width: 100%; /* Expand the underline to full width */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  nav {
+      flex-direction: column; /* Stack logo and links vertically on smaller screens */
+      align-items: flex-start;
+  }
+
+  .nav_list {
+      flex-direction: column;
+      gap: 10px; /* Reduced gap on mobile */
+      margin-top: 10px;
+  }
+}
+
+
+
+/* main_data_left */
+
+.main_data{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20vh;
+  margin-top: 10vh;
+}
+/* From Uiverse.io by Praashoo7 */ 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 0.4em;
+  background-color: #171717;
+  border-radius: 25px;
+  transition: .4s ease-in-out;
+}
+
+.form:hover {
+  transform: scale(1.05);
+  border: 1px solid black;
+}
+
+#heading {
+  text-align: center;
+  margin: 2em;
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: white;
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #d3d3d3;
+}
+
+.form .btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 2.5em;
+}
+
+.button1 {
+  padding: 0.5em;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  border-radius: 5px;
+  margin-right: 0.5em;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #252525;
+  color: white;
+}
+
+.button1:hover {
+  background-color: black;
+  color: white;
+}
+
+.button2 {
+  padding: 0.5em;
+  padding-left: 2.3em;
+  padding-right: 2.3em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #252525;
+  color: white;
+}
+
+.button2:hover {
+  background-color: black;
+  color: white;
+}
+
+.button3 {
+  margin-bottom: 3em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #252525;
+  color: white;
+}
+
+.button3:hover {
+  background-color: red;
+  color: white;
+}
+
+.map{
+  border: solid 5px white;
+  border-radius: 10px;
+}

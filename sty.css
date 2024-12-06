@@ -1,0 +1,7 @@
+.container .hidden-text {
+    display: none; /* Hide the text initially */
+  }
+  
+  .container:hover .hidden-text {
+    display: block; /* Show the text on hover */
+  }
